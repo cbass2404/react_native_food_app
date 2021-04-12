@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
 
+// hooks
 import useResults from "../hooks/useResults";
 
 // local files
 import SearchBar from "../components/SearchBar";
+import ResultsList from "../components/ResultsList";
 
 const SearchScreen = () => {
     const [term, setTerm] = useState("");
@@ -23,6 +25,9 @@ const SearchScreen = () => {
             ) : (
                 <Text>We have found {results.length} results.</Text>
             )}
+            <ResultsList title="Cost Effective" />
+            <ResultsList title="Bit Pricier" />
+            <ResultsList title="Big Spender" />
         </View>
     );
 };
