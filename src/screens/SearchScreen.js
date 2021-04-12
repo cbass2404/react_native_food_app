@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { View, TextInput, StyleSheet } from "react-native";
 
+// axios
+import yelp from "../api/yelp";
+
+// local files
 import SearchBar from "../components/SearchBar";
 
 const SearchScreen = () => {
     const [term, setTerm] = useState("");
+    const [results, setResults] = useState([]);
 
     return (
         <View>
