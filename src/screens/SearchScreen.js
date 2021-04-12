@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, ScrollView } from "react-native";
 
 // hooks
 import useResults from "../hooks/useResults";
@@ -25,32 +25,43 @@ const SearchScreen = () => {
                 onTermChange={setTerm}
                 onTermSubmit={() => searchApi(term)}
             />
-            <Text>Search Screen</Text>
             {errorMessage.length > 0 ? (
-                <Text style={{ color: "red" }}>{errorMessage}</Text>
+                <Text style={styles.errorStyle}>{errorMessage}</Text>
             ) : (
-                <Text>We have found {results.length} results.</Text>
+                <Text style={styles.resultStyle}>
+                    We have found {results.length} results.
+                </Text>
             )}
-            <ResultsList
-                results={filterResultsByPrice("$")}
-                title="Cost Effective"
-            />
-            <ResultsList
-                results={filterResultsByPrice("$$")}
-                title="Bit Pricier"
-            />
-            <ResultsList
-                results={filterResultsByPrice("$$$")}
-                title="Big Spender"
-            />
-            <ResultsList
-                results={filterResultsByPrice("$$$$")}
-                title="Break the bank"
-            />
+            <ScrollView>
+                <ResultsList
+                    results={filterResultsByPrice("$")}
+                    title="Cost Effective"
+                />
+                <ResultsList
+                    results={filterResultsByPrice("$$")}
+                    title="Bit Pricier"
+                />
+                <ResultsList
+                    results={filterResultsByPrice("$$$")}
+                    title="Big Spender"
+                />
+                <ResultsList
+                    results={filterResultsByPrice("$$$$")}
+                    title="Break the bank"
+                />
+            </ScrollView>
         </View>
     );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    errorStyle: {
+        color: "red",
+        marginLeft: 15,
+    },
+    resultStyle: {
+        marginLeft: 15,
+    },
+});
 
 export default SearchScreen;
