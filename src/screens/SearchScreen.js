@@ -19,7 +19,7 @@ const SearchScreen = () => {
     };
 
     return (
-        <View>
+        <View style={styles.container}>
             <SearchBar
                 term={term}
                 onTermChange={setTerm}
@@ -55,6 +55,9 @@ const SearchScreen = () => {
 };
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
     errorStyle: {
         color: "red",
         marginLeft: 15,
