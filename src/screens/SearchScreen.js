@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, ScrollView } from "react-native";
+import { StyleSheet, Text, ScrollView } from "react-native";
 
 // hooks
 import useResults from "../hooks/useResults";
