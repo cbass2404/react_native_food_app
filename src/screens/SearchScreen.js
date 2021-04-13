@@ -19,7 +19,7 @@ const SearchScreen = () => {
     };
 
     return (
-        <View style={styles.container}>
+        <>
             <SearchBar
                 term={term}
                 onTermChange={setTerm}
@@ -27,11 +27,7 @@ const SearchScreen = () => {
             />
             {errorMessage.length > 0 ? (
                 <Text style={styles.errorStyle}>{errorMessage}</Text>
-            ) : (
-                <Text style={styles.resultStyle}>
-                    We have found {results.length} results.
-                </Text>
-            )}
+            ) : null}
             <ScrollView>
                 <ResultsList
                     results={filterResultsByPrice("$")}
@@ -50,14 +46,11 @@ const SearchScreen = () => {
                     title="Break the bank"
                 />
             </ScrollView>
-        </View>
+        </>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
     errorStyle: {
         color: "red",
         marginLeft: 15,
